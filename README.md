@@ -1,2 +1,3 @@
-# delete-all-github-forks
-Delete all of your forked github repositories
+# Delete All of Your Forked Repos
+
+Delete all of those forked repos in Python.

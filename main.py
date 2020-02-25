@@ -9,13 +9,15 @@ username = config['username']
 auth = (username, config['token'])
 per_page = config['per_page']
 
+
 def get_repos():
-    url = base_url+'/users/{}/repos?per_page={}'.format(username, per_page)
+    url = f'{base_url}/users/{username}/repos?per_page={per_page}'
     r = requests.get(url, auth=auth)
     return r.json()
 
+
 def del_repo(repo):
-    url = base_url+'/repos/{}/{}'.format(username, repo['name'])
+    url = f"{base_url}/repos/{username}/{repo['name']}"
     r = requests.delete(url, auth=auth)
 
 if __name__ == '__main__':

@@ -1,13 +1,9 @@
-import requests
-import json
+import requests, json, config
 
-with open('config.json') as config:
-    config = json.load(config)
-
-base_url = config['url']
-username = config['username']
-auth = (username, config['token'])
-per_page = config['per_page']
+base_url = config.url
+username = config.username
+auth = (username, config.token)
+per_page = config.per_page
 
 
 def get_repos():
@@ -19,6 +15,7 @@ def get_repos():
 def del_repo(repo):
     url = f"{base_url}/repos/{username}/{repo['name']}"
     r = requests.delete(url, auth=auth)
+
 
 if __name__ == '__main__':
     for repo in get_repos():
